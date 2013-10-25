@@ -1,0 +1,119 @@
+body {
+   margin: 1em auto;
+   font: 1em 'News Cycle';
+   min-width: 1040px;
+}
+
+#card {
+   position: relative;
+   color: #fff;
+   width: 1040px;
+   height: 700px;
+}
+
+
+
+p:last-child {
+   margin-bottom: 0;
+}
+
+#card * {
+   z-index: 1000;
+}
+
+#card img {
+   z-index: 0;
+}
+
+#card header {
+   position: absolute;
+   top: 1em;
+   left: 1em;
+   font-style: italic;
+}
+
+#birth-blurb {
+   position: absolute;
+   bottom: 1em;
+   right: 1em;
+   font: 1em 'News Cycle';
+   width: 33%;
+}
+
+#birth-blurb a {
+   color: #fff;
+}
+
+img {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+#blurb-download {
+   color: white;
+   font-size: 80px;
+   position: absolute;
+   left: 10px;
+   bottom: 3px;
+   width: 80px;
+   overflow: hidden;
+   text-decoration: none;
+}
+
+#blurb-download:hover {
+   color: #fe9;
+}
+
+#birth-blurb-download-widget {
+   position: absolute;
+   bottom: 10px;
+   left: 90px;
+   background: white;
+   box-shadow: 3px 3px 19px rgba(0,0,0,.8);
+   -webkit-box-shadow: 3px 3px 19px rgba(0,0,0,.8);
+   -moz-box-shadow: 3px 3px 19px rgba(0,0,0,.8);
+}
+
+#birth-blurb-download-widget ul {
+   height: 200px;
+   width: 200px;
+   overflow: hidden;
+   overflow-y: scroll;
+   padding: 0 1em 1em 1em;
+}
+
+#birth-blurb-download-widget header {
+   position: relative;
+   bottom: auto;
+   left: auto;
+   top: auto;
+   color: #333;
+   font-size: 1em;
+   margin-bottom: 0;
+   padding: 1em 0;
+}
+
+#birth-blurb-download-widget header h1 {
+   margin-left: -.15em;
+}
+
+#order-form {
+   margin-top: 1em;
+   background: white;
+   padding: 1em;
+   box-shadow: 3px 3px 19px rgba(0,0,0,.8);
+   -webkit-box-shadow: 3px 3px 19px rgba(0,0,0,.8);
+   -moz-box-shadow: 3px 3px 19px rgba(0,0,0,.8);
+}
+
+#order-form p {
+   text-align: center;
+}
+
+#order-form .order-me {
+   position: static;
+   top: auto;
+   left: auto;
+   border-bottom: 3em white solid;
+}

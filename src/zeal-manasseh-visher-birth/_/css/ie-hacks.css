@@ -1,0 +1,49 @@
+.positioned, #blurb-download {
+   position: static;
+}
+
+#blurb-download {
+   display: none;
+}
+
+#birth-blurb-download-widget-h1 {
+   display: inline;
+}
+
+#birth-blurb-download-widget-h1, #birth-blurb-download-widget-ul {
+   display: inline;
+}
+
+#birth-blurb-download-widget-ul li {
+   display: inline;
+}
+
+#birth-blurb-download-widget-ul li:after {
+   content: ",";
+}
+
+#birth-blurb-download-widget-ul li:last-child:after {
+   content: "";
+}
+
+#birth-blurb.ie {
+   margin-top: 1em;
+   background-color: #fff; 
+   position: static;
+   right: auto;
+   bottom: auto;
+   width: auto;
+}
+
+#header-h1, #order-form-h1 {
+   font-size: 2em;
+   font-family: Comfortaa;
+   color: #333;
+   text-align: center;
+}
+
+#ie-sadness {
+   display: block;
+   color: #f00;
+   font-size: 3em;
+}
