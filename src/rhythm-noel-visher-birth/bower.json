@@ -1,0 +1,8 @@
+{
+  "name": "rhythm-noel-visher-birth",
+  "version": "0.0.0",
+  "dependencies": {
+    "sass-bootstrap": "~3.0.0"
+  },
+  "devDependencies": {}
+}
