@@ -26,4 +26,4 @@ done
 
 cd publish
 
-aws --profile p_s3 s3 sync --delete . s3://thevishers.info
+aws --profile p_s3 s3 sync --delete . s3://staging.thevishers.info

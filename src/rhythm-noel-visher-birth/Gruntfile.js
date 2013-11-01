@@ -9,7 +9,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     dirs: {
       src: 'src',
-      dist: 'dist',
+      publish: 'publish',
       tmp: '.tmp' // Don't change this. It's expected.
     },
     autoprefixer: {
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          base: '<%= dirs.dist %>'
+          base: '<%= dirs.publish %>'
         }
       }
     },
@@ -64,9 +64,9 @@ module.exports = function (grunt) {
             '*{ico,png,txt}',
             'images/{,*/}*.{webp,gif}',
             'styles/fonts/{,*/}*.*',
-            'bower_components/sass-bootstrap/fonts/*.*/'
+            'bower_components/sass-bootstrap/fonts/*.*'
           ],
-          dest: '<%= dirs.dist %>'
+          dest: '<%= dirs.publish %>'
         }]
       },
       styles: {
@@ -94,7 +94,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          generatedImagesDir: '<%= dirs.dist %>/images/generated'
+          generatedImagesDir: '<%= dirs.publish %>/images/generated'
         }
       },
       server: {
@@ -105,7 +105,7 @@ module.exports = function (grunt) {
     },
     useminPrepare: {
       options: {
-        dest: '<%= dirs.dist %>'
+        dest: '<%= dirs.publish %>'
       },
       html: '<%= dirs.src %>/index.html'
     },
@@ -115,16 +115,16 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= dirs.src %>',
           src: '*.html',
-          dest: '<%= dirs.dist %>'
+          dest: '<%= dirs.publish %>'
         }]
       }
     },
     usemin: {
       options: {
-        dirs: ['<%= dirs.dist %>']
+        dirs: ['<%= dirs.publish %>']
       },
-      html: ['<%= dirs.dist %>/{,*/}*.html'],
-      css: ['<%= dirs.dist %>/styles/{,*/}*.css']
+      html: ['<%= dirs.publish %>/{,*/}*.html'],
+      css: ['<%= dirs.publish %>/styles/{,*/}*.css']
     },
     watch: {
       compass: {
@@ -153,8 +153,8 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= dirs.tmp %>',
-            '<%= dirs.dist %>/*',
-            '!<%= dirs.dist %>/.git*'
+            '<%= dirs.publish %>/*',
+            '!<%= dirs.publish %>/.git*'
           ]
         }]
       },
@@ -164,10 +164,10 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            '<%= dirs.dist %>/scripts/{,*/}*.js',
-            '<%= dirs.dist %>/styles/{,*/}*.css',
-            '<%= dirs.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-            '<%= dirs.dist %>/styles/fonts/{,*/}*.*'
+            '<%= dirs.publish %>/scripts/{,*/}*.js',
+            '<%= dirs.publish %>/styles/{,*/}*.css',
+            '<%= dirs.publish %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+            '<%= dirs.publish %>/styles/fonts/{,*/}*.*'
           ]
         }
       }
@@ -189,6 +189,10 @@ module.exports = function (grunt) {
       ]
     }
   });
+
+  grunt.registerTask('default', [
+    'build'
+  ]);
 
   grunt.registerTask('build', [
     'clean:dist',
