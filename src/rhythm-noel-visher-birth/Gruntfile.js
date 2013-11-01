@@ -21,7 +21,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= dirs.tmp %>/styles/',
           src: '{,*/}*.css',
-          dest: '<%= dirs.dist %>/styles/'
+          dest: '<%= dirs.tmp %>/styles/'
         }]
       }
     },
@@ -160,6 +160,18 @@ module.exports = function (grunt) {
       },
       server: '<%= dirs.tmp %>'
     },
+    rev: {
+      dist: {
+        files: {
+          src: [
+            '<%= dirs.dist %>/scripts/{,*/}*.js',
+            '<%= dirs.dist %>/styles/{,*/}*.css',
+            '<%= dirs.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+            '<%= dirs.dist %>/styles/fonts/{,*/}*.*'
+          ]
+        }
+      }
+    },
     concurrent: {
       server: [
         'compass',
@@ -189,7 +201,7 @@ module.exports = function (grunt) {
     // 'uglify',
     // 'modernizr',
     'copy:dist',
-    // 'rev',
+    'rev',
     'usemin'
   ]);
 
