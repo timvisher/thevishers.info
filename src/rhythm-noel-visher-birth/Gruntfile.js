@@ -9,7 +9,8 @@ module.exports = function (grunt) {
   grunt.initConfig({
     dirs: {
       src: 'src',
-      dist: 'dist'
+      dist: 'dist',
+      tmp: '.tmp' // Don't change this. It's expected.
     },
     autoprefixer: {
       options: {
@@ -18,9 +19,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '<%= dirs.tmp %>/styles/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '<%= dirs.dist %>/styles/'
         }]
       }
     },
@@ -33,7 +34,7 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           base: [
-            '.tmp',
+            '<%= dirs.tmp %>',
             '<%= dirs.src %>'
           ]
         }
@@ -41,7 +42,7 @@ module.exports = function (grunt) {
       test: {
         options: {
           base: [
-            '.tmp',
+            '<%= dirs.tmp %>',
             'test',
             '<%= dirs.src %>'
           ]
@@ -72,15 +73,15 @@ module.exports = function (grunt) {
         expand: true,
         dot: true,
         cwd: '<%= dirs.src %>/styles',
-        dest: '.tmp/styles/',
+        dest: '<%= dirs.tmp %>/styles/',
         src: '{,*/}*.css'
       }
     },
     compass: {
       options: {
         sassDir: '<%= dirs.src %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
+        cssDir: '<%= dirs.tmp %>/styles',
+        generatedImagesDir: '<%= dirs.tmp %>/images/generated',
         imagesDir: '<%= dirs.src %>/images',
         javascriptsDir: '<%= dirs.src %>/scripts',
         fontsDir: '<%= dirs.src %>/styles/fonts',
@@ -108,6 +109,16 @@ module.exports = function (grunt) {
       },
       html: '<%= dirs.src %>/index.html'
     },
+    htmlmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= dirs.src %>',
+          src: '*.html',
+          dest: '<%= dirs.dist %>'
+        }]
+      }
+    },
     usemin: {
       options: {
         dirs: ['<%= dirs.dist %>']
@@ -130,8 +141,8 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= dirs.src %>/*.html',
-          '.tmp/styles/{,*/}*.css',
-          '{.tmp,<%= dirs.src %>}/scripts/{,*/}*.js',
+          '<%= dirs.tmp %>/styles/{,*/}*.css',
+          '{<%= dirs.tmp %>,<%= dirs.src %>}/scripts/{,*/}*.js',
           '<%= dirs.src %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -141,13 +152,13 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '.tmp',
+            '<%= dirs.tmp %>',
             '<%= dirs.dist %>/*',
             '!<%= dirs.dist %>/.git*'
           ]
         }]
       },
-      server: '.tmp'
+      server: '<%= dirs.tmp %>'
     },
     concurrent: {
       server: [
@@ -159,13 +170,28 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass',
-        'copy:styles'// ,
+        'copy:styles',
         // 'imagemin',
         // 'svgmin',
-        // 'htmlmin'
+        'htmlmin'
       ]
     }
   });
+
+  grunt.registerTask('build', [
+    'clean:dist',
+    'useminPrepare',
+    'concurrent:dist',
+    'autoprefixer',
+    // 'requirejs',
+    'concat',
+    'cssmin',
+    // 'uglify',
+    // 'modernizr',
+    'copy:dist',
+    // 'rev',
+    'usemin'
+  ]);
 
   grunt.registerTask('server', function(target) {
     if (target === 'dist') {
