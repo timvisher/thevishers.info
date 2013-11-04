@@ -90,7 +90,8 @@ module.exports = function (grunt) {
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
         relativeAssets: false,
-        assetCacheBuster: false
+        assetCacheBuster: false,
+        boring: true
       },
       dist: {
         options: {
@@ -140,7 +141,7 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= dirs.src %>/*.html',
+          '<%= dirs.src %>/{,*}/*.html',
           '<%= dirs.tmp %>/styles/{,*/}*.css',
           '{<%= dirs.tmp %>,<%= dirs.src %>}/scripts/{,*/}*.js',
           '<%= dirs.src %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'

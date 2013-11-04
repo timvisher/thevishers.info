@@ -23,7 +23,3 @@ do
   smkdirp publish/$b
   rsync -avP --delete $publish_root/* publish/$b
 done
-
-cd publish
-
-aws --profile p_s3 s3 sync --delete . s3://staging.thevishers.info
