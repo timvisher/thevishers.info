@@ -120,6 +120,16 @@ module.exports = function (grunt) {
         }]
       }
     },
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= dirs.src %>/images',
+          src: '{,*/}*.{png,jpg,jpeg}',
+          dest: '<%= dirs.publish %>/images'
+        }]
+      }
+    },
     usemin: {
       options: {
         dirs: ['<%= dirs.publish %>']
@@ -184,7 +194,7 @@ module.exports = function (grunt) {
       dist: [
         'compass',
         'copy:styles',
-        // 'imagemin',
+        'imagemin',
         // 'svgmin',
         'htmlmin'
       ]
