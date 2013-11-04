@@ -6,4 +6,4 @@ set -eux
 
 smkdir publish
 
-cp -R _ *.html publish/
+rsync -avP _ *.html publish/
