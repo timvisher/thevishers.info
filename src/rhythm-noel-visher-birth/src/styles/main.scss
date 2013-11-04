@@ -1,27 +1,56 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
+@import 'compass/typography/links/link-colors';
+
+/* Colors lifted from Sherwin-Williams 117: http://www.sherwin-williams.com/homeowners/color/find-and-explore-colors/paint-colors-by-family/SW6817-gentian/ */
+
+$background:   #e1e2e8;
+$foreground:   #6b6ea6;
+$soft:         #acafd5;
+$soft_rgba_50: rgba(172,175,213,0.50);
+$soft_rgba_25: rgba(172,175,213,0.25);
+$emphasized:   #413e70;
 
 * > h1 {
    margin-top: 0px;
 }
 
 body {
-   background: #E1E2E8;
-   color: #413E70;
+   background: $background;
+   color: $foreground;
    font-size: 1.75em;
+}
+
+a {
+   color: $foreground;
+   border-bottom: 1px dotted $foreground;
+}
+
+a:visited {
+   color: $soft;
+}
+
+a:hover, a:focus, a:active {
+   color: $emphasized;
+   border-bottom: 1px solid $foreground;
+   text-decoration: none;
 }
 
 .info-band {
    padding: 20px;
    width: 100%;
-   border-top: #ACAFD5 10px solid;
+   border-top: $soft 10px solid;
 }
 
 .image-gallery {
    text-align: center;
    padding: 0;
-   background: url("../images/rhythm-noel-visher-sucking-her-thumb-small.jpeg") no-repeat center center;
+   background: linear-gradient(
+                 $soft_rgba_25,
+                 $soft_rgba_50
+               ),
+               url("../images/rhythm-noel-visher-sucking-her-thumb-small.jpeg") no-repeat center center;
    background-size: cover;
    height: 300px;
 }
