@@ -16,6 +16,10 @@ $emphasized:   #413e70;
    margin-top: 0px;
 }
 
+h1 {
+   color: $emphasized;
+}
+
 body {
    background: $background;
    color: $foreground;
@@ -60,6 +64,7 @@ a:hover, a:focus, a:active {
 }
 
 .birth-stats {
+   color: $emphasized;
    font-size: 2em;
    margin: 0;
 }
