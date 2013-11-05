@@ -11,6 +11,9 @@ $soft:         #acafd5;
 $soft_rgba_50: rgba(172,175,213,0.50);
 $soft_rgba_25: rgba(172,175,213,0.25);
 $emphasized:   #413e70;
+$breakpoint_small: 500px;
+$breakpoint_medium: 650px;
+$breakpoint_large: 1000px;
 
 * > h1 {
    margin-top: 0px;
@@ -24,6 +27,8 @@ body {
    background: $background;
    color: $foreground;
    font-size: 1.75em;
+   /* max-width: 1000px; */
+   /* margin: auto; */
 }
 
 a {
@@ -48,15 +53,35 @@ a:hover, a:focus, a:active {
 }
 
 .image-gallery {
-   text-align: center;
    padding: 0;
-   background: linear-gradient(
-                 $soft_rgba_25,
-                 $soft_rgba_50
-               ),
-               url("../images/rhythm-noel-visher-sucking-her-thumb-small.jpeg") no-repeat center center;
-   background-size: cover;
-   height: 300px;
+   /* background: linear-gradient( */
+   /*               $soft_rgba_25, */
+   /*               $soft_rgba_50 */
+   /*             ), */
+   /*             url("../images/rhythm-noel-visher-sucking-her-thumb-small.jpeg") no-repeat center center; */
+   /* display: table-cell; */
+   overflow: hidden;
+   width: 100%;
+}
+
+@media (min-width: $breakpoint_large) {
+   .image-gallery {
+      max-height: 225px;
+      vertical-align: middle;
+   }
+}
+
+.image-gallery img {
+   width: 50%;
+   float: left;
+}
+
+@media (min-width: $breakpoint_medium) {
+
+   .image-gallery img {
+      width: 25%;
+   }
+
 }
 
 .info-band:first-child {
@@ -73,7 +98,7 @@ a:hover, a:focus, a:active {
    text-align: center;
 }
 
-@media (min-width: 500px) {
+@media (min-width: $breakpoint_small) {
 
    .birth-stats {
       display: table;
