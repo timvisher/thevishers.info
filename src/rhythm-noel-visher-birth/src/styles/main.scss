@@ -26,7 +26,7 @@ h1 {
 body {
    background: $background;
    color: $foreground;
-   font-size: 1.75em;
+   font-size: 2em;
    /* max-width: 1000px; */
    /* margin: auto; */
 }
@@ -115,5 +115,75 @@ a:hover, a:focus, a:active {
    list-style-type: none;
    margin: 0;
    padding: 0;
+   text-align: center;
+}
+
+.narrative-break::before {
+   content: '';
+   display: block;
+   height: 225px;
+   background: url('http://placehold.it/500x332') center center fixed;
+   background-size: cover;
+   border-top: $soft 10px solid;
+   border-bottom: $soft 10px solid;
+   margin-bottom: 20px;
+   margin-top: 0px;
+   width: 100%;
+}
+
+.narrative-break.false-start::before {
+   background: url('../images/false-start-small.jpg') center center;
+   background-size: cover;
+}
+
+.narrative-break.real-deal::before {
+   background: url('../images/real-deal-small.jpg') center center fixed;
+   background-size: cover;
+}
+
+.narrative-break.the-pros::before {
+   background: url('../images/the-pros-small.jpg') center center fixed;
+   background-size: cover;
+}
+
+.narrative-break.the-amateur::before {
+   background: url('../images/the-amateur-small.jpg') center center fixed;
+   background-size: cover;
+}
+
+.narrative-break.its-a-girl::before {
+   background: url('../images/its-a-girl-small.jpg') center center fixed;
+   background-size: cover;
+}
+
+.narrative-break.christmas-time::before {
+   background: url('../images/christmas-time-small.jpg') center center fixed;
+   background-size: cover;
+}
+
+article p {
+   margin: 20px;
+}
+
+@media (min-width: $breakpoint_small) {
+
+   article p {
+      max-width: 500px;
+      margin: 20px auto;
+   }
+
+}
+
+
+h1 {
+   text-align: center;
+   margin: 20px;
+}
+
+article h2+p {
+   margin-top: 0px;
+}
+
+article h2 {
    text-align: center;
 }
