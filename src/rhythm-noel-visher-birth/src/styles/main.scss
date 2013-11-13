@@ -54,12 +54,6 @@ a:hover, a:focus, a:active {
 
 .image-gallery {
    padding: 0;
-   /* background: linear-gradient( */
-   /*               $soft_rgba_25, */
-   /*               $soft_rgba_50 */
-   /*             ), */
-   /*             url("../images/rhythm-noel-visher-sucking-her-thumb-small.jpeg") no-repeat center center; */
-   /* display: table-cell; */
    overflow: hidden;
    width: 100%;
 }
@@ -122,7 +116,7 @@ a:hover, a:focus, a:active {
    content: '';
    display: block;
    height: 225px;
-   background: url('http://placehold.it/500x332') center center fixed;
+   background-position: center center;
    background-size: cover;
    border-top: $soft 10px solid;
    border-bottom: $soft 10px solid;
@@ -131,34 +125,64 @@ a:hover, a:focus, a:active {
    width: 100%;
 }
 
+@media (min-height: 550px) {
+
+   .narrative-break::before {
+      height: 500px;
+   }
+
+}
+
 .narrative-break.false-start::before {
-   background: url('../images/false-start-small.jpg') center center;
-   background-size: cover;
+   background-image: url('../images/rhythm-looking-up-small.jpg');
 }
 
 .narrative-break.real-deal::before {
-   background: url('../images/real-deal-small.jpg') center center fixed;
-   background-size: cover;
+   background-image: url('../images/real-deal-small.jpg');
 }
 
 .narrative-break.the-pros::before {
-   background: url('../images/the-pros-small.jpg') center center fixed;
-   background-size: cover;
+   background-image: url('../images/the-pros-small.jpg');
 }
 
 .narrative-break.the-amateur::before {
-   background: url('../images/the-amateur-small.jpg') center center fixed;
-   background-size: cover;
+   background-image: url('../images/the-amateur-small.jpg');
 }
 
 .narrative-break.its-a-girl::before {
-   background: url('../images/its-a-girl-small.jpg') center center fixed;
-   background-size: cover;
+   background-image: url('../images/its-a-girl-small.jpg');
 }
 
 .narrative-break.christmas-time::before {
-   background: url('../images/christmas-time-small.jpg') center center fixed;
-   background-size: cover;
+   background-image: url('../images/christmas-time-small.jpg');
+}
+
+@media (min-width: $breakpoint_medium), (min-resolution: 300dpi), (-webkit-min-device-pixel-ratio: 2) {
+
+   .narrative-break.false-start::before {
+      background-image: url('../images/rhythm-looking-up-medium.jpg');
+   }
+
+   .narrative-break.real-deal::before {
+      background-image: url('../images/real-deal-medium.jpg');
+   }
+
+   .narrative-break.the-pros::before {
+      background-image: url('../images/the-pros-medium.jpg');
+   }
+
+   .narrative-break.the-amateur::before {
+      background-image: url('../images/the-amateur-medium.jpg');
+   }
+
+   .narrative-break.its-a-girl::before {
+      background-image: url('../images/its-a-girl-medium.jpg');
+   }
+
+   .narrative-break.christmas-time::before {
+      background-image: url('../images/christmas-time-medium.jpg');
+   }
+
 }
 
 article p {
