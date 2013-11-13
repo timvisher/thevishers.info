@@ -1,5 +1,3 @@
-$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
-
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'compass/typography/links/link-colors';
 
@@ -23,6 +21,14 @@ h1 {
    color: $emphasized;
 }
 
+@media (min-width: $breakpoint_small) {
+
+   p {
+      max-width: 500px;
+      margin: 20px auto;
+   }
+
+}
 body {
    background: $background;
    color: $foreground;
@@ -44,6 +50,10 @@ a:hover, a:focus, a:active {
    color: $emphasized;
    border-bottom: 1px solid $foreground;
    text-decoration: none;
+}
+
+h1 a, h1 a:visited {
+   color: $emphasized;
 }
 
 .info-band {
@@ -197,7 +207,6 @@ article p {
    }
 
 }
-
 
 h1 {
    text-align: center;
