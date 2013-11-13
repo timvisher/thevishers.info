@@ -62,9 +62,7 @@ module.exports = function (grunt) {
           cwd: '<%= dirs.src %>',
           src: [
             '*{ico,png,txt}',
-            'images/{,*/}*.{webp,gif}',
-            'styles/fonts/{,*/}*.*',
-            'bower_components/sass-bootstrap/fonts/*.*'
+            'images/{,*/}*.{webp,gif}'
           ],
           dest: '<%= dirs.publish %>'
         }]
@@ -108,14 +106,14 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= dirs.publish %>'
       },
-      html: '<%= dirs.src %>/index.html'
+      html: '<%= dirs.src %>/{,*/}*.html'
     },
     htmlmin: {
       dist: {
         files: [{
           expand: true,
           cwd: '<%= dirs.src %>',
-          src: '*.html',
+          src: '{,*/}*.html',
           dest: '<%= dirs.publish %>'
         }]
       }
